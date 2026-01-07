@@ -7,9 +7,10 @@ class Solution(object):
         mini = prices[0]
         profit = 0
         for i in prices:
-            mini = min(i,mini)
-            a = i-mini
-            profit = max(profit,a)
+            if i < mini:
+                mini = i
+            else:
+                profit = max(profit, i-mini)
         return profit
 
 
