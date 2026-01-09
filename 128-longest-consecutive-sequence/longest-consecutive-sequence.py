@@ -4,11 +4,11 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
+        if nums == []:
+            return 0
         nums.sort()
         longest = 0
         a = 0
-        if nums == []:
-            return 0
         for i in range(len(nums)-1):
             if nums[i+1]-nums[i] == 1:
                 a += 1
