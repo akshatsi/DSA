@@ -13,9 +13,10 @@ class Solution(object):
         for i in range(len(nums)-1):
             if nums[i+1]-nums[i] == 1:
                 a += 1
-                longest = max(longest, a)
             elif nums[i+1] == nums[i]:
                 continue
             else:
-                a = 0
+                longest = max(longest, a)
+                a = 0               
+        longest = max(longest, a)
         return longest+1
