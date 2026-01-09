@@ -18,5 +18,5 @@ class Solution(object):
             else:
                 longest = max(longest, a)
                 a = 0               
-        longest = max(longest, a)
-        return longest+1
+        
+        return max(longest,a)+1
