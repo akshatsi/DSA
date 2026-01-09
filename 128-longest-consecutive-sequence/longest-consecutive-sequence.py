@@ -6,7 +6,8 @@ class Solution(object):
         """
         if nums == []:
             return 0
-        nums.sort()
+        else:
+            nums.sort()
         longest = 0
         a = 0
         for i in range(len(nums)-1):
