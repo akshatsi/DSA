@@ -8,15 +8,14 @@ class Solution:
                 return n-i-1
         return -1 '''
 
-        left = 0 
-        right = len(nums)-1
-        while left <= right:
-            mid = (left + right) // 2
+        low = 0 
+        high = len(nums)-1
+        while low <= high:
+            mid = low + (high - low) // 2
             if nums[mid] == target:
                 return mid
-            elif nums[mid]>target:
-                right -= 1
+            elif nums[mid] < target:
+                low = mid + 1
             else:
-                left += 1
-                
+                high = mid - 1
         return -1
