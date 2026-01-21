@@ -1,9 +1,17 @@
 class Solution:
     def singleNonDuplicate(self, nums: List[int]) -> int:
-        a = {}
         left = 0
-        while left < len(nums):
-            a[nums[left]] = a.get(nums[left],0)+1 
-            left += 1
+        right = len(nums) - 1
 
-        return min(a,key=a.get)
+        while left < right:
+            mid = (left + right) // 2
+
+            if mid % 2 == 1:
+                mid -= 1
+
+            if nums[mid] == nums[mid + 1]:
+                left = mid + 2
+            else:
+                right = mid
+
+        return nums[left]
