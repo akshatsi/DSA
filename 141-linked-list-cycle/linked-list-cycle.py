@@ -6,7 +6,7 @@
 
 class Solution:
     def hasCycle(self, head: Optional[ListNode]) -> bool:
-        temp = head
+        '''temp = head
         arr = []
         while temp:
             if temp in arr:
@@ -14,6 +14,13 @@ class Solution:
             else:
                 arr.append(temp)
             temp = temp.next
-        return False
+        return False'''
 
-        
+        slow = head
+        fast = head
+        while fast and slow and fast.next:
+            fast = fast.next.next
+            slow = slow.next
+            if slow == fast:
+                return True
+        return False
