@@ -1,7 +1,7 @@
 class Solution:
     def addTwoNumbers(self, l1, l2):
 
-        dummy = ListNode(0)
+        dummy = ListNode(-1)
         temp = dummy
         carry = 0
         while l1 or l2 or carry:
