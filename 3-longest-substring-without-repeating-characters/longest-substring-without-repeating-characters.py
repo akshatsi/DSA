@@ -1,6 +1,6 @@
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
-        a = ""
+        '''a = ""
         ans = 0
 
         for i in s:
@@ -9,4 +9,21 @@ class Solution:
             a += i
             ans = max(ans, len(a))
 
-        return ans
+        return ans'''
+
+        l = 0 #left
+        longest = 0
+        sett = set()
+        n = len(s)
+
+        for r in range(n): #right
+            while s[r] in sett:
+                sett.remove(s[l])
+                l += 1
+
+            w = r - l + 1
+            longest = max(longest,w)
+            sett.add(s[r])
+
+        return longest
+
