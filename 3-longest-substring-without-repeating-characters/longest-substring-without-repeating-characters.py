@@ -21,7 +21,7 @@ class Solution:
                 sett.remove(s[l])
                 l += 1
 
-            w = r - l + 1
+            w = r - l + 1 #window size
             longest = max(longest,w)
             sett.add(s[r])
 
