@@ -3,13 +3,13 @@ class Solution:
         l = 0 
         r = 0
         total = 0
-
+        num_odd = 0
         for r in range(len(nums)):
             if nums[r] % 2 != 0:
-                k -= 1
-            while k < 0:
+                num_odd += 1
+            while num_odd > k:
                 if nums[l] % 2 != 0:
-                    k+=1
+                    num_odd-=1
                 l += 1
             total += r - l + 1
                 
