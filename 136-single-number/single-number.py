@@ -1,7 +1,7 @@
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
-        count = 0
+        fin_dic = {}
         for i in range(len(nums)):
-            count ^= nums[i]
+            fin_dic[nums[i]] = fin_dic.get(nums[i], 0) + 1
 
-        return count
+        return min(fin_dic, key=fin_dic.get)
