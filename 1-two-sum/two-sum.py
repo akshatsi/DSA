@@ -5,13 +5,12 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        numbers_seen = {}
+        diff_dic = {}
+        final = []
+        for i in range(len(nums)):
+            diff = target - nums[i]
+            if nums[i] in diff_dic:
+                return [diff_dic.get(nums[i]),i]
+            diff_dic[diff] = i
 
-        for index in range(len(nums)):
-            current = nums[index]
-            needed = target - current
-
-            if needed in numbers_seen:
-                return [numbers_seen[needed], index]
-
-            numbers_seen[current] = index
+            
