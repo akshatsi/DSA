@@ -1,13 +1,12 @@
-class Solution(object):
-    def rotate(self, matrix):
-        """
-        :type matrix: List[List[int]]
-        :rtype: None Do not return anything, modify matrix in-place instead.
-        """
+class Solution:
+    def rotate(self, matrix: List[List[int]]) -> None:
         n = len(matrix)
 
+        # Transpose
         for i in range(n):
-            for j in range(i+1,n):
-                matrix[i][j],matrix[j][i] = matrix[j][i],matrix[i][j]
-        for i in range(n):
-            matrix[i].reverse()
+            for j in range(i + 1, n):
+                matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
+
+        # Reverse each row
+        for row in matrix:
+            row.reverse()
