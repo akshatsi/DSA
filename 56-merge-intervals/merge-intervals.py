@@ -8,5 +8,4 @@ class Solution:
                 ans.append(interval)
             else:
                 ans[-1][1] = max(ans[-1][1], interval[1])
-
-        return ans
+        return ans 
