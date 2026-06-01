@@ -3,7 +3,6 @@ class Solution:
         n = len(nums)
         smallest = nums[0]
         left = 0
-        a = 0
         while left < n:
             smallest = min(smallest, nums[left])
             left += 1
