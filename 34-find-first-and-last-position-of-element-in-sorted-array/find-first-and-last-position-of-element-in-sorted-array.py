@@ -1,20 +1,22 @@
 class Solution:
     def searchRange(self, nums: List[int], target: int) -> List[int]:
-        if nums == []:
-            return [-1,-1]
+        if not nums:
+            return [-1, -1]
         n = len(nums)
-        left = 0
-        right = n-1
-        while left <=right:
-            if nums[left] == target and nums[right] == target:
-                return[left,right]
+        low = 0
+        high = n - 1
+
+        while low <= high:
+            if nums[low] == nums[high] == target:
+                return[low, high]
             else:
-                if nums[left]==target:
-                    right -= 1
-                elif nums[right] == target:
-                    left += 1
+                if nums[low] == target and nums[high] != target:
+                    high -= 1
+                elif nums[high] == target and nums[low] != target:
+                    low += 1
+
                 else:
-                    left += 1
-                    right -=1
+                    low += 1
+                    high -= 1
+
         return [-1,-1]
-           
