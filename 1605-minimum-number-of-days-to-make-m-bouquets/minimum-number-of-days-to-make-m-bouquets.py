@@ -4,32 +4,29 @@ class Solution:
         if m * k > n:
             return -1
 
-        def canMake(day):
-            bouquets = 0
+        def canMake(days):
+            bouquet = 0
             flowers = 0
-
             for d in bloomDay:
-                if d <= day:
+                if d <= days:
                     flowers += 1
                     if flowers == k:
-                        bouquets += 1
+                        bouquet += 1
                         flowers = 0
                 else:
                     flowers = 0
 
-            return bouquets >= m
+            return bouquet >= m
 
-        left = min(bloomDay)
-        right = max(bloomDay)
+        low = min(bloomDay)
+        high = max(bloomDay)
         ans = -1
-
-        while left <= right:
-            mid = (left + right) // 2
-
+        while low <= high:
+            mid = (low + high)// 2
             if canMake(mid):
                 ans = mid
-                right = mid - 1
+                high = mid - 1
             else:
-                left = mid + 1
+                low = mid + 1
 
         return ans
