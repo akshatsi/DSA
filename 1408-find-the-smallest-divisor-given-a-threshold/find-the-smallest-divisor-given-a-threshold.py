@@ -6,9 +6,8 @@ class Solution:
             for i in nums:
                 total += math.ceil(i/divisor)
             return total <= threshold 
-        nums.sort()
         low = 1
-        high = nums[-1]
+        high = max(nums)
         res = 0
         while low <= high:
             mid = (low + high) // 2
