@@ -20,8 +20,8 @@ class Solution:
             mid = (left + right) // 2
 
             if daysC(weights, mid) <= days:
-                right = mid - 1   # try smaller capacity
+                right = mid - 1   
             else:
-                left = mid + 1    # need larger capacity
+                left = mid + 1    
 
         return left
