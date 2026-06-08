@@ -1,19 +1,18 @@
 class Solution:
     def pivotArray(self, nums: List[int], pivot: int) -> List[int]:
-        new = []
-
-        for i in range(len(nums)):
-            if nums[i] < pivot:
-                new.append(nums[i])
+        n=len(nums)
+        if n==1: return nums
+        R=[]
+        l, m=0, 0
+        for x in nums:
+            if x<pivot:
+                nums[l]=x
+                l+=1
+            elif x>pivot:
+                R.append(x)
+            else:
+                m+=1
+        return nums[:l]+[pivot]*m+R
         
-        for i in range(len(nums)):
-            if nums[i] == pivot:
-                new.append(pivot)
-        for i in range(len(nums)):
-            if nums[i] > pivot:
-                new.append(nums[i])
-
-        nums = new
-        return nums
 
         
