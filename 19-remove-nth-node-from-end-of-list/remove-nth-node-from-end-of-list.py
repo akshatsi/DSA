@@ -11,14 +11,13 @@ class Solution:
         while temp:
             count += 1
             temp = temp.next
-        
+
         if n == count:
             return head.next
-        
         temp = head
         for i in range(count - n - 1):
             temp = temp.next
-        
+
         temp.next = temp.next.next
-        
+
         return head
