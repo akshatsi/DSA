@@ -3,27 +3,25 @@ class Solution:
         
         if not head or not head.next or k == 0:
             return head
-        
+
+
         temp = head
         count = 1
-        
         while temp.next:
-            temp = temp.next
             count += 1
-        
+            temp = temp.next
+
         k %= count
         if k == 0:
             return head
-        
-        temp.next = head  
-        
-        steps = count - k
-        new_tail = head
-        
-        for _ in range(steps - 1):
-            new_tail = new_tail.next
-        
-        new_head = new_tail.next
-        new_tail.next = None
-        
+
+        temp.next = head
+        new_start = head
+
+        for i in range(count - k -1):
+            new_start= new_start.next
+
+        new_head = new_start.next
+        new_start.next = None
+
         return new_head
