@@ -7,7 +7,7 @@ class Solution:
                 res = res[:-1]
 
             elif i == "#":
-                res *= 2
+                res += res
 
             elif i == "%":
                 res = res[::-1]
