@@ -15,6 +15,5 @@ class Solution:
             total += r - l + 1
 
         return total
-
     def numSubarraysWithSum(self, nums: List[int], goal: int) -> int:
-        return self.atMostSum(nums, goal) - self.atMostSum(nums, goal-1)
+        return self.atMostSum(nums, goal) - self.atMostSum(nums, goal - 1)
