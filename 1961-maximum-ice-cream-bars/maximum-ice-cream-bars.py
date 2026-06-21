@@ -1,17 +1,14 @@
 class Solution:
     def maxIceCream(self, costs: List[int], coins: int) -> int:
-        xMin = xMax = max(costs)
-        freq = [0] * (xMax + 1)
-        for x in costs:
-            freq[x] += 1
-            xMin = min(xMin, x)
-        cnt = 0
-        for x, f in enumerate(freq[xMin:], start=xMin):
-            if f == 0:
-                continue
-            buy = min(coins // x, f)
-            if buy == 0:
+        costs.sort()
+        count=0
+        i=0
+        n=len(costs)
+        while coins>0 and i<n:
+            if costs[i]<=coins:
+                coins-=costs[i]
+                count+=1
+                i+=1
+            else:
                 break
-            cnt += buy
-            coins -= buy * x
-        return cnt
+        return count
