@@ -8,10 +8,9 @@ class Solution:
         for key, value in freq.items():
             if len(my_heap) < k:
                 heapq.heappush(my_heap, [value, key])
-                continue
             
 
-            if value > my_heap[0][0]:
+            elif value > my_heap[0][0]:
                 heapq.heappop(my_heap)
                 heapq.heappush(my_heap, [value, key])
 
