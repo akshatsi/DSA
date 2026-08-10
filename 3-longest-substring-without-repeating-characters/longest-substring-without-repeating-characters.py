@@ -13,14 +13,14 @@ class Solution:
 
         low = 0
         longest = 0
-        repeat = []
+        sett = set()
         for high in range(len(s)):
-            while s[high] in repeat:
-                repeat.remove(s[low])
+            while s[high] in sett:
+                sett.remove(s[low])
                 low += 1
             
             longest = max(longest, high - low + 1)
-            repeat.append(s[high])
+            sett.add(s[high])
 
         return longest
             
