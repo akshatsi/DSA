@@ -11,19 +11,17 @@ class Solution:
 
         return ans'''
 
-        l = 0 #left
+        low = 0
         longest = 0
-        sett = set()
-        n = len(s)
-
-        for r in range(n): #right
-            while s[r] in sett:
-                sett.remove(s[l])
-                l += 1
-
-            w = r - l + 1 #window size
-            longest = max(longest,w)
-            sett.add(s[r])
+        repeat = []
+        for high in range(len(s)):
+            while s[high] in repeat:
+                repeat.remove(s[low])
+                low += 1
+            
+            longest = max(longest, high - low + 1)
+            repeat.append(s[high])
 
         return longest
+            
 
