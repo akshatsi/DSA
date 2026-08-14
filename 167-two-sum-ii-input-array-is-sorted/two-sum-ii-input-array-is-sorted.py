@@ -9,5 +9,6 @@ class Solution:
                 return [left + 1, right + 1]
             elif sum < target:
                 left += 1
-            elif sum > target:
+            else:
                 right -= 1
+        return False
