@@ -15,13 +15,15 @@ class Solution:
 
         left = max(weights)
         right = sum(weights)
+        ans = right
 
         while left <= right:
             mid = (left + right) // 2
 
             if daysC(weights, mid) <= days:
+                ans = mid
                 right = mid - 1   
             else:
                 left = mid + 1    
 
-        return left
+        return ans
