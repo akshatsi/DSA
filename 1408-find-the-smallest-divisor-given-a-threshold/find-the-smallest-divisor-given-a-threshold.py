@@ -1,21 +1,25 @@
 class Solution:
     def smallestDivisor(self, nums: List[int], threshold: int) -> int:
-        
-        def sum_check(divisor):
+        def div_sum(nums, div):
             total = 0
-            for i in nums:
-                total += math.ceil(i/divisor)
-            return total <= threshold 
+            for num in nums:
+                total += math.ceil(num/div)
+
+            return total
+
+        
         low = 1
         high = max(nums)
-        res = 0
+        ans = high
+
         while low <= high:
             mid = (low + high) // 2
-            if sum_check(mid):
-                res = mid
+
+            if div_sum(nums, mid) <= threshold:
+                ans = mid
                 high = mid - 1
+                
             else:
                 low = mid + 1
 
-        return res
-
+        return ans
