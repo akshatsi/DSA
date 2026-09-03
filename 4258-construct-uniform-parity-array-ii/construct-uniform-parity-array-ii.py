@@ -1,11 +1,12 @@
 class Solution:
     def uniformArray(self, nums1: list[int]) -> bool:
-        mn = min(nums1)
-
-        if mn % 2 == 1:
+        if min(nums1) % 2:
             return True
 
-        has_odd = any(x % 2 == 1 for x in nums1)
-        has_even = any(x % 2 == 0 for x in nums1)
-
-        return not (has_odd and has_even)
+        f = True
+        for num in nums1:
+            if num % 2:
+                f = False
+                break
+        
+        return f
