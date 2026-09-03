@@ -3,10 +3,9 @@ class Solution:
         if min(nums1) % 2:
             return True
 
-        f = True
         for num in nums1:
             if num % 2:
-                f = False
-                break
+                return False
+            
         
-        return f
+        return True
