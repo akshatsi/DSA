@@ -11,4 +11,4 @@ class Solution:
             sum -= digit
 
         
-        return "".join(ans) if sum == 0 else ""
+        return "".join(ans)
